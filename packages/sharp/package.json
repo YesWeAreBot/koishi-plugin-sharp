@@ -1,7 +1,7 @@
 {
   "name": "@yesimbot/koishi-plugin-sharp",
   "description": "通用图片处理服务",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -15,7 +15,7 @@
     "plugin"
   ],
   "dependencies": {
-    "@yesimbot/sharp": "^0.0.5"
+    "@yesimbot/sharp": "^0.0.6"
   },
   "devDependencies": {
     "koishi": "^4"

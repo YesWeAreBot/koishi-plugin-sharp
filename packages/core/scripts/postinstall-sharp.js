@@ -22,9 +22,10 @@ const INSTALL_COMMANDS = {
   // pnpm, bun 支持 --no-save (或等效行为)
   pnpm: `pnpm add ${PACKAGES} --no-save`,
   bun: `bun add ${PACKAGES} --no-save`,
-  // Yarn v1 不支持 --no-save，它会默认保存到 package.json。我们在这里注释说明。
-  // 对于 postinstall 场景，这通常是可以接受的，因为它是在开发环境中。
+  // Yarn v1 不支持 --no-save，它会默认保存到 package.json
   yarn: `yarn add ${PACKAGES}`,
+  // Yarn Berry (yarn 2+)
+  'yarn@berry': `yarn add ${PACKAGES} --no-save`,
 };
 
 /**
@@ -35,28 +36,25 @@ const INSTALL_COMMANDS = {
  */
 function runCommandAndStream(commandString) {
   console.log(`⚡ Executing: \n   $ ${commandString}\n`);
-  const [command, ...args] = commandString.split(' ');
-
+  
+  // 使用shell解析命令，避免空格路径问题
   const executionCwd = process.env.INIT_CWD;
   if (!executionCwd) {
-      // 作为备用方案，并给出警告
       console.warn('⚠️  Could not determine project root via INIT_CWD. Using current directory.');
       console.warn('⚠️  This might fail with modern package managers like Yarn Berry.');
   }
   console.log(`ℹ️  Running command in directory: ${executionCwd || process.cwd()}`);
 
   // 创建子进程的环境变量
-  // 继承当前所有环境变量，并添加我们的“锁”
   const childEnv = {
     ...process.env,
     [GUARD_VARIABLE]: 'true',
   };
 
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {
+    const child = spawn(commandString, {
       stdio: 'inherit',
-      shell: process.platform === 'win32',
-      // 将包含“锁”的环境变量传递给子进程
+      shell: true, // 使用shell模式，避免参数解析问题
       env: childEnv,
       cwd: executionCwd,
     });

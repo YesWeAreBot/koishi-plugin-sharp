@@ -390,6 +390,14 @@ async function processImages(ctx: Context, images: Buffer[]) {
 
 ## 🔄 更新日志
 
+### v0.0.6
+- ✨ **增强错误处理** - 添加优雅的降级机制
+- 🛡️ **可用性检查** - 提供 `isAvailable()` 方法检测 sharp 状态
+- 🔧 **Windows 兼容性** - 修复路径空格导致的安装问题
+- 🚀 **Yarn Berry 支持** - 新增对 Yarn 2+ 的支持
+- 📦 **类型定义优化** - 提供更准确的 TypeScript 类型支持
+- 🛠️ **健壮性提升** - 改进错误处理和日志记录
+
 ### v0.0.5
 - ✨ **初始版本发布**
 - 🛡️ **解决 Sharp 安全限制** - 避免插件被标记为 unsafe
