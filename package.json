@@ -1,0 +1,43 @@
+{
+  "name": "@yesimbot/koishi-plugin-sharp",
+  "description": "通用图片处理服务",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin"
+  ],
+  "scripts": {
+    "postinstall": "node scripts/install.js"
+  },
+  "dependencies": {
+    "detect-package-manager": "^3.0.2"
+  },
+  "devDependencies": {
+    "koishi": "^4",
+    "sharp": "^0.34.3"
+  },
+  "peerDependencies": {
+    "koishi": "^4",
+    "sharp": "^0.34.3"
+  },
+  "koishi": {
+    "description": {
+      "zh": "通用图片处理服务",
+      "en": "General image processing service"
+    },
+    "browser": true,
+    "service": {
+      "implements": [
+        "sharp"
+      ]
+    }
+  }
+}
