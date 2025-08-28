@@ -6,7 +6,8 @@
   "typings": "lib/index.d.ts",
   "files": [
     "lib",
-    "dist"
+    "dist",
+    "scripts"
   ],
   "license": "MIT",
   "keywords": [
@@ -27,6 +28,10 @@
   "peerDependencies": {
     "koishi": "^4",
     "sharp": "^0.34.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "koishi": {
     "description": {

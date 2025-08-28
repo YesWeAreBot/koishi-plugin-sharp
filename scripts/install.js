@@ -1,6 +1,5 @@
-import { detect } from "detect-package-manager";
-
-import { exec } from 'child_process';
+const { exec } = require('child_process');
+const { detect } = require('detect-package-manager');
 
 // 安装 sharp 依赖
 // npm install --cpu=wasm32 sharp
