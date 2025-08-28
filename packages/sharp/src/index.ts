@@ -1,6 +1,6 @@
 import { Context, Schema, Service } from 'koishi'
 
-import sharp from "sharp"
+import sharp from '@yesimbot/sharp'
 
 export const name = 'sharp'
 
