@@ -1,7 +1,7 @@
 {
   "name": "@yesimbot/koishi-plugin-sharp",
   "description": "通用图片处理服务",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -19,15 +19,14 @@
     "postinstall": "node scripts/install.js"
   },
   "dependencies": {
+    "@img/sharp-wasm32": "^0.34.3",
     "detect-package-manager": "^3.0.2"
   },
   "devDependencies": {
-    "koishi": "^4",
-    "sharp": "^0.34.3"
+    "koishi": "^4"
   },
   "peerDependencies": {
-    "koishi": "^4",
-    "sharp": "^0.34.3"
+    "koishi": "^4"
   },
   "publishConfig": {
     "access": "public",

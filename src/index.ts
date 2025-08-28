@@ -1,5 +1,6 @@
 import { Context, Schema, Service } from 'koishi'
-import sharp from 'sharp'
+
+import sharp from "sharp"
 
 export const name = 'sharp'
 
@@ -18,6 +19,6 @@ export default class SharpService extends Service<Config> {
   public readonly sharpInstance: typeof sharp;
   constructor(ctx: Context, config: Config) {
     super(ctx, "sharp")
-    this.sharpInstance = sharp;
+    this.sharpInstance = sharp
   }
 }
